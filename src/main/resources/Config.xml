@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="Config" class="com.enefce.opine.server.config.ServerConfig">
+		<property name="serverName" value="OPINE-SERVER" />
+		<property name="serverContactName" value="Mr. Prasad Pulikal" />
+		<property name="sqlHostname" value="localhost" />
+		<property name="sqlUsername" value="xxxxxx" />
+		<property name="sqlDatabase" value="xxxxxx" />
+		<property name="sqlPassword" value="xxxxxx" />
+		<property name="sqlPort" value="3306" />
+	</bean>
+
+</beans>
