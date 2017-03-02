@@ -20,11 +20,11 @@ public class OpineServer {
 	 public static void main(String[] args) {
 		 
 		 
-		 ApplicationContext context = new ClassPathXmlApplicationContext(
-					"Config.xml");
-
-			ServerConfig obj = (ServerConfig) context.getBean("Config");
-			obj.printServerDetails();
+//		 ApplicationContext context = new ClassPathXmlApplicationContext(
+//					"Config.xml");
+//
+//			ServerConfig obj = (ServerConfig) context.getBean("Config");
+//			obj.printServerDetails();
 		 
 		 
 //		    OpineRequestHandlingServer prhServer = new OpineRequestHandlingServer(config.getServerThreads() + 5,
@@ -42,10 +42,20 @@ public class OpineServer {
 			
 			
 			//
+			
+			port(getHerokuAssignedPort());
 	        get("/info", (req, res) -> "Opine Server");
 	    }
 	 
 	 public static void stopServer() {
 		 stop();
 	 }
+	 
+	 static int getHerokuAssignedPort() {
+	        ProcessBuilder processBuilder = new ProcessBuilder();
+	        if (processBuilder.environment().get("PORT") != null) {
+	            return Integer.parseInt(processBuilder.environment().get("PORT"));
+	        }
+	        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+	    }
 }
