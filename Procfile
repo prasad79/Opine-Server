@@ -1,1 +1,1 @@
-web:    java -cp "target/dependency/*":target/classes com.enefce.opine.server.OpineServer
+java -cp target/classes:"target/dependency/*" com.enefce.opine.server.OpineServer
