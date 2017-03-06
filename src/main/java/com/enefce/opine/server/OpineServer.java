@@ -19,7 +19,7 @@ public class OpineServer {
 			
 			get("/", (req, res) -> getServerInfo());
 	        get("/info", (req, res) -> "Opine Server");
-	        System.out.println("Server Started "+OpineServer.class.getPackage().getImplementationVersion());
+	        System.out.println("Server Started "+ServerDetails.getVersion());
 	    }
 	 
 	 public static void stopServer() {
@@ -27,7 +27,7 @@ public class OpineServer {
 	 }
 	 
 	 private static String getServerInfo() {
-		return "Opine Server \n Version: " + OpineServer.class.getPackage().getImplementationVersion();
+		return "Opine Server \n Version: " + ServerDetails.getVersion();
 	 }
 	 
 	 static int getHerokuAssignedPort() {
